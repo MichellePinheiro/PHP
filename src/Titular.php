@@ -1,11 +1,10 @@
 <?php
 
-class Titular 
+class Titular extends Pessoa
 {
-    private $cpf;
-    private $nome;
+    private $endereco;
 
-    public function __construct (CPF $cpf, string $nome)
+    public function __construct (CPF $cpf, string $nome, Endereco $endereco)
     {
         $this -> cpf = $cpf;
         $this -> validaNomeTitular($nome);
@@ -22,13 +21,8 @@ class Titular
         }
     }
 
-    public function recuperaCpf() : string 
+    public function recuperaEndereco() : Endereco
     {
-        return $this -> cpf -> recuperaNumero();
-    }
-
-    public function recuperaNome() : string 
-    {
-        return $this -> nome;
+        return $this->endereco;
     }
 }
